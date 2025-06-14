@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 
 # states
-execution_count = 378
+execution_count = 0
 state = 0
-tape = ['.', '.', '#', '#', '#', '#', '#', '#', '#', '#', '#', '.', '#', '.', '.', '.', '.', '#', '.', '#', '.', '#', '.', '.', '#', '#', '.', '#']
-head = 19
+tape = ["0"]
+head = 0
 
 # machine
-delta = {0: {' ': (1, '.', 1), '.': (0, '#', -1), '#': (0, '.', -1)}, 1: {' ': (0, '#', -1), '.': (1, '#', 1), '#': (0, ' ', 1)}}
+delta = {
+	0: {' ': (1, '.', 1), '.': (0, '#', -1), '#': (0, '.', -1)},
+	1: {' ': (0, '#', -1), '.': (1, '#', 1), '#': (0, ' ', 1)}
+}
 initial_state = 0
 goal_states = []
 
 # tape
 alphabet = [' ', '.', '#']
-default_symbol = " "
-initial_tape = [' ']
+default_symbol = "0"
+initial_tape = ['0']
 initial_head = 0
 
 import sys
