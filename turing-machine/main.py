@@ -65,6 +65,7 @@ if next:
     execution_count += 1
 else:
     print("No transition found.")
+    sys.exit(1)
 
 with open(path, "w") as file:
     file.write(
@@ -93,6 +94,7 @@ if next:
     execution_count += 1
 else:
     print("No transition found.")
+    sys.exit(1)
 
 with open(path, "w") as file:
     file.write(
