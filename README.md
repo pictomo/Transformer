@@ -12,6 +12,7 @@ You will see that the script file itself is rewritten every time you run it.
 [ultraman-tiga](./ultraman-tiga/) is the same as [transformer](./transformer/), but it transitions between 3 states.<br>
 [counter](./counter/) remembers the number of times it has been executed.
 
+## references
 It is inspired by [Quine (self replicating code)](https://en.wikipedia.org/wiki/Quine_(computing)).<br>
 [Here is my Quine try.](https://github.com/pictomo/quine-python)
 
@@ -24,3 +25,8 @@ A Turing machine is defined within the code.
 You will see that the state of the Turing machine changes, each time it is executed.<br>
 [main.py](./turing-quine/main.py) prints the status as it runs.
 By running [repeater.py](./turing-quine/repeater.py), it will automatically run [main.py](./turing-quine/main.py) repeatedly, so it will be easier to see that main.py behaves as a Turing machine.
+
+## references
+[Wolfram's 2-state 3-symbol Turing machine - Wikipedia](https://en.wikipedia.org/wiki/Wolfram%27s_2-state_3-symbol_Turing_machine)<br>
+[Wolfram's 2-state 3-symbol Turing Machineの実装例（Python版） #チューリングマシン - Qiita](https://qiita.com/ytaki0801/items/b45696aa0c3f8bd259db)<br>
+[Mr. Kameyama](https://www.cs.tsukuba.ac.jp/~kam/index-ja.html)'s lecture "automaton and formal languages"
