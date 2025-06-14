@@ -59,12 +59,13 @@ if next:
         tape.insert(0, default_symbol)
         head = 0
     print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+    execution_count += 1
 else:
     print("No transition found.")
 
 with open(path, "w") as file:
     file.write(
-        content.format(content, chr(34) * 3, chr(92), chr(123), chr(125), execution_count + 1, state, tape, head, delta, initial_state, goal_states, alphabet, default_symbol, initial_tape, initial_head)
+        content.format(content, chr(34) * 3, chr(92), chr(123), chr(125), execution_count, state, tape, head, delta, initial_state, goal_states, alphabet, default_symbol, initial_tape, initial_head)
     )
 """
 
@@ -83,10 +84,11 @@ if next:
         tape.insert(0, default_symbol)
         head = 0
     print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+    execution_count += 1
 else:
     print("No transition found.")
 
 with open(path, "w") as file:
     file.write(
-        content.format(content, chr(34) * 3, chr(92), chr(123), chr(125), execution_count + 1, state, tape, head, delta, initial_state, goal_states, alphabet, default_symbol, initial_tape, initial_head)
+        content.format(content, chr(34) * 3, chr(92), chr(123), chr(125), execution_count, state, tape, head, delta, initial_state, goal_states, alphabet, default_symbol, initial_tape, initial_head)
     )
