@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
 # states
-execution_count = 0
-state = 0
-tape = ["0", "1", "1"]
-head = 0
+execution_count = 4
+state = 2
+tape = ['X', 'X', 'X', 'B']
+head = 2
 
 # machine
 delta = {0: {'0': (0, 'X', 1), '1': (1, 'X', 1)}, 1: {'1': (1, 'X', 1), 'B': (2, 'B', -1)}}
@@ -49,7 +49,7 @@ def tape_str(tape, head):
     return s[:head] + "{2}033[1m" + s[head] + "{2}033[0m" + s[head+1:]
 
 if execution_count == 0:
-    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
+    print(str(execution_count).zfill(3), "Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
 
 next = delta.get(state, {3}{4}).get(tape[head], False)
 if next:
@@ -61,8 +61,8 @@ if next:
     elif head == -1:
         tape.insert(0, default_symbol)
         head = 0
-    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
     execution_count += 1
+    print(str(execution_count).zfill(3), "Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
 else:
     print("No transition found.")
     sys.exit(1)
@@ -78,7 +78,7 @@ def tape_str(tape, head):
     return s[:head] + "\033[1m" + s[head] + "\033[0m" + s[head+1:]
 
 if execution_count == 0:
-    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
+    print(str(execution_count).zfill(3), "Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
 
 next = delta.get(state, {}).get(tape[head], False)
 if next:
@@ -90,8 +90,8 @@ if next:
     elif head == -1:
         tape.insert(0, default_symbol)
         head = 0
-    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
     execution_count += 1
+    print(str(execution_count).zfill(3), "Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
 else:
     print("No transition found.")
     sys.exit(1)
