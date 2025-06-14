@@ -1,0 +1,92 @@
+#!/usr/bin/env python3
+
+# states
+execution_count = 0
+state = 0
+tape = ["0", "1", "1"]
+head = 0
+
+# machine
+delta = {0: {'0': (0, 'X', 1), '1': (1, 'X', 1)}, 1: {'1': (1, 'X', 1), 'B': (2, 'B', -1)}}
+initial_state = 0
+goal_states = [2]
+
+# tape
+alphabet = ['0', '1', 'X', 'B']
+default_symbol = "B"
+initial_tape = ['0', '1', '1']
+initial_head = 0
+
+import sys
+
+path = sys.argv[0]
+content = """#!/usr/bin/env python3
+
+# states
+execution_count = {5}
+state = {6}
+tape = {7}
+head = {8}
+
+# machine
+delta = {9}
+initial_state = {10}
+goal_states = {11}
+
+# tape
+alphabet = {12}
+default_symbol = "{13}"
+initial_tape = {14}
+initial_head = {15}
+
+import sys
+
+path = sys.argv[0]
+content = {1}{0}{1}
+
+def tape_str(tape, head):
+    s = "".join(tape)
+    return s[:head] + "{2}033[1m" + s[head] + "{2}033[0m" + s[head+1:]
+
+next = delta.get(state, {3}{4}).get(tape[head], False)
+if next:
+    state = next[0]
+    tape[head] = next[1]
+    head += next[2]
+    if head == len(tape):
+        tape.append(default_symbol)
+    elif head == -1:
+        tape.insert(0, default_symbol)
+        head = 0
+    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+else:
+    print("No transition found.")
+
+with open(path, "w") as file:
+    file.write(
+        content.format(content, chr(34) * 3, chr(92), chr(123), chr(125), execution_count + 1, state, tape, head, delta, initial_state, goal_states, alphabet, default_symbol, initial_tape, initial_head)
+    )
+"""
+
+def tape_str(tape, head):
+    s = "".join(tape)
+    return s[:head] + "\033[1m" + s[head] + "\033[0m" + s[head+1:]
+
+next = delta.get(state, {}).get(tape[head], False)
+if next:
+    state = next[0]
+    tape[head] = next[1]
+    head += next[2]
+    if head == len(tape):
+        tape.append(default_symbol)
+    elif head == -1:
+        tape.insert(0, default_symbol)
+        head = 0
+    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+else:
+    print("No transition found.")
+
+with open(path, "w") as file:
+    file.write(
+        content.format(content, chr(34) * 3, chr(92), chr(123), chr(125), execution_count + 1, state, tape, head, delta, initial_state, goal_states, alphabet, default_symbol, initial_tape, initial_head)
+    )
