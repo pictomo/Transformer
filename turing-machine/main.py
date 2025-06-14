@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 
 # states
-execution_count = 4
-state = 2
-tape = ['X', 'X', 'X', 'B']
-head = 2
+execution_count = 378
+state = 0
+tape = ['.', '.', '#', '#', '#', '#', '#', '#', '#', '#', '#', '.', '#', '.', '.', '.', '.', '#', '.', '#', '.', '#', '.', '.', '#', '#', '.', '#']
+head = 19
 
 # machine
-delta = {0: {'0': (0, 'X', 1), '1': (1, 'X', 1)}, 1: {'1': (1, 'X', 1), 'B': (2, 'B', -1)}}
+delta = {0: {' ': (1, '.', 1), '.': (0, '#', -1), '#': (0, '.', -1)}, 1: {' ': (0, '#', -1), '.': (1, '#', 1), '#': (0, ' ', 1)}}
 initial_state = 0
-goal_states = [2]
+goal_states = []
 
 # tape
-alphabet = ['0', '1', 'X', 'B']
-default_symbol = "B"
-initial_tape = ['0', '1', '1']
+alphabet = [' ', '.', '#']
+default_symbol = " "
+initial_tape = [' ']
 initial_head = 0
 
 import sys

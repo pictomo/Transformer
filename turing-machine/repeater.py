@@ -4,7 +4,7 @@ import sys
 import subprocess
 from time import sleep
 
-wait_time = 0.5
+wait_time = 0.05
 
 
 def run_main():
