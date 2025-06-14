@@ -48,6 +48,9 @@ def tape_str(tape, head):
     s = "".join(tape)
     return s[:head] + "{2}033[1m" + s[head] + "{2}033[0m" + s[head+1:]
 
+if execution_count == 0:
+    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+
 next = delta.get(state, {3}{4}).get(tape[head], False)
 if next:
     state = next[0]
@@ -72,6 +75,9 @@ with open(path, "w") as file:
 def tape_str(tape, head):
     s = "".join(tape)
     return s[:head] + "\033[1m" + s[head] + "\033[0m" + s[head+1:]
+
+if execution_count == 0:
+    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
 
 next = delta.get(state, {}).get(tape[head], False)
 if next:
