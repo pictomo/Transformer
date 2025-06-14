@@ -49,7 +49,7 @@ def tape_str(tape, head):
     return s[:head] + "{2}033[1m" + s[head] + "{2}033[0m" + s[head+1:]
 
 if execution_count == 0:
-    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
 
 next = delta.get(state, {3}{4}).get(tape[head], False)
 if next:
@@ -61,7 +61,7 @@ if next:
     elif head == -1:
         tape.insert(0, default_symbol)
         head = 0
-    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
     execution_count += 1
 else:
     print("No transition found.")
@@ -77,7 +77,7 @@ def tape_str(tape, head):
     return s[:head] + "\033[1m" + s[head] + "\033[0m" + s[head+1:]
 
 if execution_count == 0:
-    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
 
 next = delta.get(state, {}).get(tape[head], False)
 if next:
@@ -89,7 +89,7 @@ if next:
     elif head == -1:
         tape.insert(0, default_symbol)
         head = 0
-    print("Accepted" if state in goal_states else "Rejected", tape_str(tape, head))
+    print("Accepted" if state in goal_states else "Rejected", state, tape_str(tape, head))
     execution_count += 1
 else:
     print("No transition found.")
