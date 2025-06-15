@@ -46,7 +46,7 @@ initial_head = 0
 # states
 execution_count = 0
 state = 0
-tape = ["0"]
+tape = [" "]
 head = 0
 
 # machine
@@ -59,6 +59,6 @@ goal_states = []
 
 # tape
 alphabet = [' ', '.', '#']
-default_symbol = "0"
-initial_tape = ['0']
+default_symbol = " "
+initial_tape = [' ']
 initial_head = 0
